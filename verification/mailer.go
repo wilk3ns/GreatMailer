@@ -20,7 +20,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 
 	m.SetHeader("From", "info@greatstuff.ee")
 
-	m.SetHeader("To", email)
+	m.SetHeader("To", "info@greatstuff.ee")
 
 	m.SetHeader("Subject", hdr)
 
