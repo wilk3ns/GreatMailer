@@ -38,9 +38,9 @@ func ExecuteDeployment() error {
 func ExecuteWebsiteDeployment() error {
 
 	cmd := exec.Command("/home/orangepi/dev/deployment/website-deployment.sh")
-	output, err := cmd.CombinedOutput()
+	err := cmd.Start()
 	if err != nil {
-		log.Printf("Command execution error: %v\nOutput: %s", err, output)
+		log.Printf("Command execution error: %v\n", err)
 		return err
 	}
 	log.Printf("Command output: %s", output)
