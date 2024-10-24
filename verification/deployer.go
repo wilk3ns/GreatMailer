@@ -43,6 +43,5 @@ func ExecuteWebsiteDeployment() error {
 		log.Printf("Command execution error: %v\n", err)
 		return err
 	}
-	log.Printf("Command output: %s", output)
 	return nil
 }
