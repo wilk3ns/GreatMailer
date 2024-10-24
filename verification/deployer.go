@@ -60,7 +60,7 @@ func ExecuteWebsiteDeployment() error {
 		log.Printf("Command execution error: %v\nOutput: %s", err, resetOutput)
 		return err
 	}
-	cmd := exec.Command("/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
+	cmd := exec.Command("nohup", "bash", "/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Printf("Command execution error: %v\nOutput: %s", err, output)
