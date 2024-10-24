@@ -2,6 +2,7 @@
 
 # Kill the program first
 pkill greatBackend
+sleep 2
 
 # Set the working directory to your git repository
 cd /home/orangepi/GreatMailer/ || { echo "Directory not found!"; exit 1; }
