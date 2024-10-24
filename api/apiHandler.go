@@ -16,6 +16,7 @@ func HandleRequests() {
 
 	myRouter.HandleFunc("/send-email", SendEmail).Methods("POST")
 	myRouter.HandleFunc("/deploy-backend", HandleWebhook).Methods("POST")
+	myRouter.HandleFunc("/deploy-website", HandleWebhook).Methods("POST")
 
 	fmt.Println("Listening for APIs on: 5000")
 	log.Fatal(http.ListenAndServe(":5000", handlers.CORS(header, methods, origins)(myRouter)))
