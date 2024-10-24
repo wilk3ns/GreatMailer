@@ -60,7 +60,7 @@ func SendEmail(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Send email with the provided data
-		res, err := verification.SendEmail(emailReq.Name, emailReq.Email, emailReq.Message)
+		res, err := verification.SendEmail(emailReq.Email, emailReq.Name, emailReq.Message)
 
 		var response models.Response
 		if err == nil {

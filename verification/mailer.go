@@ -8,7 +8,7 @@ import (
 
 func SendEmail(email string, hdr string, msg string) (string, error) {
 
-	from := "info@greatstuff.ee"
+	username := "info@greatstuff.ee"
 	password := "bta3stW&"
 
 	smtpHost := "smtp.zoho.eu"
@@ -18,7 +18,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 
 	m := gomail.NewMessage()
 
-	m.SetHeader("From", "info@greatstuff.ee")
+	m.SetHeader("From", email)
 
 	m.SetHeader("To", "info@greatstuff.ee")
 
@@ -26,7 +26,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 
 	m.SetBody("text/plain", message)
 
-	d := gomail.NewDialer(smtpHost, smtpPort, from, password)
+	d := gomail.NewDialer(smtpHost, smtpPort, username, password)
 
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
