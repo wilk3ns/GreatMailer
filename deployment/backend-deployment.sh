@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Kill the program first
-pkill program_name
+pkill greatBackend
 
 # Set the working directory to your git repository
 cd /home/orangepi/GreatMailer/ || { echo "Directory not found!"; exit 1; }
@@ -19,7 +19,7 @@ fi
 
 # Run Go build
 echo "Building the project..."
-go build -o GreatBackend
+go build -o greatBackend
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
@@ -27,7 +27,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-chmod +x ./GreatBackend
+chmod +x ./greatBackend
 
 # Run the executable
 echo "Running the executable..."
