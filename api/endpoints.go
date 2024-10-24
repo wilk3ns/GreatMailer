@@ -132,7 +132,7 @@ func HandleWebsiteWebhook(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if payload.Ref == "refs/heads/master" {
-		if err := verification.ExecuteDeployment(); err != nil {
+		if err := verification.ExecuteWebsiteDeployment(); err != nil {
 			http.Error(w, "Deployment failed", http.StatusInternalServerError)
 			return
 		}
