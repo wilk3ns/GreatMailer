@@ -34,7 +34,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 	if err := d.DialAndSend(m); err != nil {
 		return err.Error(), err
 	} else {
-		fmt.Println("Email Sent to " + email)
+		fmt.Println("New e-mail from " + email)
 		return "Email Sent Successfully!", nil
 	}
 }
