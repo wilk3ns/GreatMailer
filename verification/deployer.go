@@ -22,16 +22,24 @@ func ExecuteDeployment() error {
 		return err
 	}
 
-	// Create deployment command
-	cmd := exec.Command("/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
+	// Create command with nohup to ensure it keeps running
+	cmd := exec.Command("nohup", "/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
 
-	// Set process group to prevent termination when parent exits
+	// Redirect stdout and stderr to files
+	stdout, err := os.OpenFile("/tmp/deployment.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	cmd.Stdout = stdout
+	cmd.Stderr = stdout
+
+	// Detach from parent process
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		Setpgid: true,
 		Pgid:    0,
 	}
 
-	// Start the command without waiting
+	// Start the command
 	if err := cmd.Start(); err != nil {
 		log.Printf("Failed to start deployment: %v", err)
 		return err
