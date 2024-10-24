@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the working directory to your git repository
-cd /home/orangepi/GreatMailer/ || { echo "Directory not found!"; exit 1; }
+cd /home/orangepi/web-page/ || { echo "Directory not found!"; exit 1; }
 
 # Pull changes from the Git repository
 echo "Pulling changes from Git repository..."
