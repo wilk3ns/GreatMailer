@@ -7,11 +7,11 @@ import (
 )
 
 func ExecuteDeployment() error {
-	if err := os.Chmod("../deployment/backend-deployment.sh", 0755); err != nil {
+	if err := os.Chmod("/home/orangepi/GreatMailer/deployment/backend-deployment.sh", 0755); err != nil {
 		log.Printf("Failed to make script executable: %v", err)
 		return err
 	}
-	cmd := exec.Command("../deployment/backend-deployment.sh")
+	cmd := exec.Command("/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Printf("Command execution error: %v\nOutput: %s", err, output)
