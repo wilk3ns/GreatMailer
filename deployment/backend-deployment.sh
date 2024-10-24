@@ -5,6 +5,7 @@ cd /home/orangepi/GreatMailer/ || { echo "Directory not found!"; exit 1; }
 
 # Pull changes from the Git repository
 echo "Pulling changes from Git repository..."
+pwd
 git pull origin master
 
 # Check if the git pull was successful
