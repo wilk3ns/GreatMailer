@@ -16,7 +16,7 @@ fi
 
 # Run Go build
 echo "Building the project..."
-go build -o greatBackend
+go build -o GreatBackend
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
