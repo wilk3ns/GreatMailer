@@ -19,9 +19,9 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", username)
-	m.SetHeader("To", email)
+	m.SetHeader("To", username)
 	m.SetHeader("Subject", hdr)
-	m.SetBody("text/plain", message)
+	m.SetBody("text/plain", message+" "+email)
 
 	d := gomail.NewDialer(smtpHost, smtpPort, username, password)
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
