@@ -24,7 +24,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-chmod +x ./greatBackend
+chmod +x ./GreatBackend
 
 # Run the executable
 echo "Running the executable..."
