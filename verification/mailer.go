@@ -28,6 +28,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	if err := d.DialAndSend(m); err != nil {
+		fmt.Println("failed to send email " + email)
 		return err.Error(), err
 	} else {
 		fmt.Println("New e-mail from " + email)
