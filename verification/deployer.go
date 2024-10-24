@@ -32,7 +32,7 @@ func ExecuteWebsiteDeployment() error {
 		log.Printf("Failed to make script executable: %v", err)
 		return err
 	}
-	resetCmd := exec.Command("git", "reset", "/home/orangepi/GreatMailer/deployment/backend-deployment.sh")
+	resetCmd := exec.Command("git", "reset", "/home/orangepi/GreatMailer/deployment/website-deployment.sh")
 	resetOutput, err := resetCmd.CombinedOutput()
 	if err != nil {
 		log.Printf("Command execution error: %v\nOutput: %s", err, resetOutput)
