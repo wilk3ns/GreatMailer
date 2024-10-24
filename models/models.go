@@ -10,3 +10,7 @@ type EmailRequest struct {
 	Email   string `json:"email"`
 	Message string `json:"message"`
 }
+
+type Payload struct {
+	Ref string `json:"ref"`
+}

@@ -90,3 +90,30 @@ func SendEmail(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	}
 }
+
+func HandleWebhook(w http.ResponseWriter, r *http.Request) {
+	var payload models.Payload
+
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+		http.Error(w, "Failed to parse request body", http.StatusBadRequest)
+		return
+	}
+
+	if payload.Ref == "refs/heads/master" {
+		if err := verification.ExecuteDeployment(); err != nil {
+			http.Error(w, "Deployment failed", http.StatusInternalServerError)
+			return
+		}
+	}
+
+	w.WriteHeader(http.StatusOK)
+	_, err := w.Write([]byte("Deployment successful"))
+	if err != nil {
+		return
+	}
+}
