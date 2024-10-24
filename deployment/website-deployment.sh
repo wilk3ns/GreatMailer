@@ -27,13 +27,13 @@ else
     echo "node_modules already present. Skipping npm install."
 fi
 
-# Stop the React app if it's already running
-if pgrep -f "npm start" > /dev/null; then
-    echo "Stopping the currently running React application..."
-    pkill -f "npm start"
+# Check if port 3000 is in use
+if lsof -i :3000 > /dev/null; then
+    echo "Stopping any process using port 3000..."
+    fuser -k 3000/tcp
     sleep 2 # Allow a moment for the process to terminate
 else
-    echo "No running React application found."
+    echo "No process found using port 3000."
 fi
 
 # Start the React app
