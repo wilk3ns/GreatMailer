@@ -27,14 +27,19 @@ else
     echo "node_modules already present. Skipping npm install."
 fi
 
-# Start the React app
-echo "Starting the React application..."
-npm start
+# Check if the React app is already running
+if pgrep -f "npm start" > /dev/null; then
+    echo "React application is already running. No action needed."
+else
+    # Start the React app
+    echo "Starting the React application..."
+    npm start &
 
-# Check if the application started successfully
-if [ $? -ne 0 ]; then
-    echo "React application did not run successfully!"
-    exit 1
+    # Check if the application started successfully
+    if [ $? -ne 0 ]; then
+        echo "React application did not run successfully!"
+        exit 1
+    fi
 fi
 
 echo "Deployment completed successfully!"
