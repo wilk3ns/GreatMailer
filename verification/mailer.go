@@ -25,7 +25,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 	m.SetBody("text/plain", "Message from:"+" "+email+"\n"+message)
 
 	d := gomail.NewDialer(smtpHost, smtpPort, username, password)
-	d.TLSConfig = &tls.Config{InsecureSkipVerify: false}
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	if err := d.DialAndSend(m); err != nil {
 		fmt.Println("failed to send email " + email + username + password)
