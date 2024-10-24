@@ -18,7 +18,7 @@ func SendEmail(email string, hdr string, msg string) (string, error) {
 
 	m := gomail.NewMessage()
 
-	m.SetHeader("From", email)
+	m.SetHeader("From", username)
 
 	m.SetHeader("To", "info@greatstuff.ee")
 
