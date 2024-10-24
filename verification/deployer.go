@@ -28,7 +28,7 @@ func ExecuteDeployment() error {
 }
 
 func ExecuteWebsiteDeployment() error {
-	if err := os.Chmod("/home/orangepi/GreatMailer/deployment/backend-deployment.sh", 0755); err != nil {
+	if err := os.Chmod("/home/orangepi/GreatMailer/deployment/website-deployment.sh", 0755); err != nil {
 		log.Printf("Failed to make script executable: %v", err)
 		return err
 	}
