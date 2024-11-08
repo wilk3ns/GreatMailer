@@ -9,7 +9,7 @@ import (
 
 func ExecuteDeployment() error {
 	// Create command with nohup to ensure it keeps running
-	cmd := exec.Command("nohup", "/home/orangepi/dev/deployment/backend-deployment.sh")
+	cmd := exec.Command("nohup", "/home/kamran/dev/deployment/backend-deployment.sh")
 
 	// Redirect stdout and stderr to files
 	stdout, err := os.OpenFile("/tmp/deployment.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -37,7 +37,7 @@ func ExecuteDeployment() error {
 
 func ExecuteWebsiteDeployment() error {
 
-	cmd := exec.Command("/home/orangepi/dev/deployment/website-deployment.sh")
+	cmd := exec.Command("/home/kamran/dev/deployment/website-deployment.sh")
 	err := cmd.Start()
 	if err != nil {
 		log.Printf("Command execution error: %v\n", err)
